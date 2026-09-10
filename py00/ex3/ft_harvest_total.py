@@ -3,5 +3,6 @@ def ft_harvest_total():
     two = int(input("Day 2 harvest: "))
     three = int(input("Day 3 harvest: "))
     print(f"Total harvest: {one+two+three}")
-    
+
+
 ft_harvest_total()

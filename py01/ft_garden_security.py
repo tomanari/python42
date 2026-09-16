@@ -2,20 +2,20 @@
 class Plant:
     def __init__(self, plant, height, age_day, grow_rate):
         self.plant = plant
-        self.height = height
-        self.age_day = age_day
-        self.grow_rate = grow_rate
+        self.__height = height
+        self.__age_day = age_day
+        self.__grow_rate = grow_rate
 
     def grow(self):
-        self.height += self.grow_rate
+        self.__height += self.__grow_rate
         return self
     
     def age(self):
-        self.age_day += 1
+        self.__age_day += 1
         return self
 
     def show(self):
-        print(f"{self.plant.capitalize()}: {self.height}cm, {self.age_day} days old")
+        print(f"{self.plant.capitalize()}: {self.__height}cm, {self.__age_day} days old")
     
     
 if __name__ == "__main__":

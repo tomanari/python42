@@ -9,18 +9,19 @@ class Plant:
     def grow(self):
         self.height += self.grow_rate
         return self
-    
+
     def age(self):
         self.age_day += 1
         return self
 
     def show(self):
-        print(f"{self.plant.capitalize()}: {self.height}cm, {self.age_day} days old")
-    
-    
+        print(f"{self.plant.capitalize()}: {self.height}cm, "
+              f"{self.age_day} days old")
+
+
 if __name__ == "__main__":
     print("=== Garden Plant Growth ===")
-    rose =  Plant("rose", 15, 21, 0.5)
+    rose = Plant("rose", 15, 21, 0.5)
     rose.show()
     total_g = 0
     for i in range(1, 8):

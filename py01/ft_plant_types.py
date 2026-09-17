@@ -23,7 +23,7 @@ class Plant:
 
     def show(self):
         print(f"{self.plant.capitalize()}: {self._height}cm, "
-              f"{self._age_day} days old\n")
+              f"{self._age_day} days old")
 
     def get_height(self):
         return self._height
@@ -34,7 +34,7 @@ class Plant:
     def set_height(self, height):
         if height < 0:
             print(f"{self.plant.capitalize()}: Error, height can't be "
-                  f"negative\nHeight update rejected")
+                  "negative\nHeight update rejected")
             print(f"\nCurrent state: {self.plant.capitalize()}: "
                   f"{self.get_height()}cm, {self.get_age()} days old")
         else:
@@ -44,17 +44,39 @@ class Plant:
     def set_age(self, age_day):
         if age_day < 0:
             print(f"{self.plant.capitalize()}: Error, age can't be "
-                  f"negative\nAge update rejected")
+                  "negative\nAge update rejected")
             print(f"\nCurrent state: {self.plant.capitalize()}: "
                   f"{self.get_height()}cm, {self.get_age()} days old")
         else:
             self._age_day = age_day
             print(f"Age updated: {self.get_age()} days")
 
+class Flower(Plant):
+    def __init__(self, plant, height, age_day, grow_rate, color):
+        super().__init__(plant, height, age_day, grow_rate)
+        self.color = color
+    
+    def show(self):
+        super().show()
+        print(f"Color: {self.color}\n")
+
+class Tree(Plant):
+    def __init__(self, plant, height, age_day, grow_rate, trunk_diameter):
+        super().__init__(plant, height, age_day, grow_rate)
+        self.trunk_diameter = trunk_diameter
+
+class Vegetable(Plant):
+    def __init__(self, plant, height, age_day, grow_rate, harvest_season,
+                 nutritional_value):
+        super().__init__(plant, height, age_day, grow_rate)
+        self.harvest_season = harvest_season
+        self.nutritional_value = nutritional_value
+
 
 if __name__ == "__main__":
-    print("=== Garden Security System ===")
-    rose = Plant("rose", 15, 30, 0.7)
+    print("=== Garden Plant Types ===")
+    print("=== Flower")
+    rose = Flower("rose", 15, 30, 0.7, "red")
     oak = Plant("oak", 200, 365, 0.8)
     cactus = Plant("cactus", 5, 90, 0.05)
     sunflower = Plant("sunflower", 80, 45, 2)

@@ -46,7 +46,7 @@ class Plant:
             print(f"{self.plant.capitalize()}: Error, age can't be "
                   "negative\nAge update rejected")
             print(f"\nCurrent state: {self.plant.capitalize()}: "
-                  f"{self.get_height()}cm, {self.get_age()} days old")
+                  f"{self.get_height()}cm, {self.get_age()} days old\n")
         else:
             self._age_day = age_day
             print(f"Age updated: {self.get_age()} days")
@@ -55,35 +55,56 @@ class Flower(Plant):
     def __init__(self, plant, height, age_day, grow_rate, color):
         super().__init__(plant, height, age_day, grow_rate)
         self.color = color
-    
+        self.has_bloomed = False
+
     def show(self):
         super().show()
-        print(f"Color: {self.color}\n")
+        print(f"Color: {self.color}")
+        if self.has_bloomed == False:
+            print(f"{self.plant.capitalize()} has not bloomed yet\n")
+        else:
+            print(f"{self.plant.capitalize()} is blooming beautifully!\n")
+
+    def bloom(self):
+        print(f"[asking the {self.plant.capitalize()} to bloom]\n")
+        self.has_bloomed = True
 
 class Tree(Plant):
     def __init__(self, plant, height, age_day, grow_rate, trunk_diameter):
         super().__init__(plant, height, age_day, grow_rate)
         self.trunk_diameter = trunk_diameter
+        self.has_shade = False
+
+    def show(self):
+        super().show()
+        if self.has_shade == True:
+            print(f"Tree{self.plant.capitalize()} now produces a shade of "
+                  f"{self.trunk_diameter}cm long and {self.trunk_diameter}"
+                  "cm wide!\n")
+
+    def produce_shade(self):
+        print(f"[asking the {self.plant.capitalize()} to produce shade]\n")
+        self.has_shade = True
 
 class Vegetable(Plant):
-    def __init__(self, plant, height, age_day, grow_rate, harvest_season,
-                 nutritional_value):
+    def __init__(self, plant, height, age_day, grow_rate, harvest_season):
         super().__init__(plant, height, age_day, grow_rate)
         self.harvest_season = harvest_season
-        self.nutritional_value = nutritional_value
+        self.nutritional_value = 0
+
+    def show(self):
+        super().show()
+        print(f"Harvest Season: {self.harvest_season}")
+        print(f"Nutritional value: {self.nutritional_value}")
 
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===")
-    print("=== Flower")
     rose = Flower("rose", 15, 30, 0.7, "red")
     oak = Plant("oak", 200, 365, 0.8)
     cactus = Plant("cactus", 5, 90, 0.05)
     sunflower = Plant("sunflower", 80, 45, 2)
-    fern = Plant("fern", 15, 120, 0.2)
+    fern = Vegetable("fern", 15, 120, 0.2,"April")
     plants = [rose]
-    for i in range(0, len(plants)):
-        print("Plant created: ", end="")
-        plants[i].show()
-    rose.set_height(25)
-    rose.set_age(-2)
+
+    fern.show()

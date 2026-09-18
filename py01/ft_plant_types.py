@@ -51,6 +51,7 @@ class Plant:
             self._age_day = age_day
             print(f"Age updated: {self.get_age()} days")
 
+
 class Flower(Plant):
     def __init__(self, plant, height, age_day, grow_rate, color):
         super().__init__(plant, height, age_day, grow_rate)
@@ -60,7 +61,7 @@ class Flower(Plant):
     def show(self):
         super().show()
         print(f"Color: {self.color}")
-        if self.has_bloomed == False:
+        if self.has_bloomed is False:
             print(f"{self.plant.capitalize()} has not bloomed yet\n")
         else:
             print(f"{self.plant.capitalize()} is blooming beautifully!\n")
@@ -68,6 +69,7 @@ class Flower(Plant):
     def bloom(self):
         print(f"[asking the {self.plant.capitalize()} to bloom]")
         self.has_bloomed = True
+
 
 class Tree(Plant):
     def __init__(self, plant, height, age_day, grow_rate, trunk_diameter):
@@ -77,7 +79,7 @@ class Tree(Plant):
 
     def show(self):
         super().show()
-        if self.has_shade == True:
+        if self.has_shade is True:
             print(f"Tree{self.plant.capitalize()} now produces a shade of "
                   f"{self.trunk_diameter}cm long and {self.trunk_diameter}"
                   "cm wide!\n")
@@ -85,6 +87,7 @@ class Tree(Plant):
     def produce_shade(self):
         print(f"[asking the {self.plant.capitalize()} to produce shade]")
         self.has_shade = True
+
 
 class Vegetable(Plant):
     def __init__(self, plant, height, age_day, grow_rate, harvest_season):
@@ -111,7 +114,7 @@ if __name__ == "__main__":
     oak = Plant("oak", 200, 365, 0.8)
     cactus = Plant("cactus", 5, 90, 0.05)
     sunflower = Plant("sunflower", 80, 45, 2)
-    fern = Vegetable("tomato", 15, 120, 0.2,"April")
+    fern = Vegetable("tomato", 15, 120, 0.2, "April")
     plants = [rose]
 
     fern.show()

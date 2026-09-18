@@ -22,7 +22,7 @@ class Plant:
         return self
 
     def show(self):
-        print(f"{self.plant.capitalize()}: {self._height}cm, "
+        print(f"{self.plant.capitalize()}: {round(self._height)}cm, "
               f"{self._age_day} days old")
 
     def get_height(self):
@@ -66,7 +66,7 @@ class Flower(Plant):
             print(f"{self.plant.capitalize()} is blooming beautifully!\n")
 
     def bloom(self):
-        print(f"[asking the {self.plant.capitalize()} to bloom]\n")
+        print(f"[asking the {self.plant.capitalize()} to bloom]")
         self.has_bloomed = True
 
 class Tree(Plant):
@@ -83,7 +83,7 @@ class Tree(Plant):
                   "cm wide!\n")
 
     def produce_shade(self):
-        print(f"[asking the {self.plant.capitalize()} to produce shade]\n")
+        print(f"[asking the {self.plant.capitalize()} to produce shade]")
         self.has_shade = True
 
 class Vegetable(Plant):
@@ -97,6 +97,13 @@ class Vegetable(Plant):
         print(f"Harvest Season: {self.harvest_season}")
         print(f"Nutritional value: {self.nutritional_value}")
 
+    def age_grow(self, days):
+        print(f"[make {self.plant.lower()} grow and age for {days} days]")
+        for i in range(0, days):
+            super().grow()
+            super().age()
+            self.nutritional_value += 1
+
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===")
@@ -104,7 +111,9 @@ if __name__ == "__main__":
     oak = Plant("oak", 200, 365, 0.8)
     cactus = Plant("cactus", 5, 90, 0.05)
     sunflower = Plant("sunflower", 80, 45, 2)
-    fern = Vegetable("fern", 15, 120, 0.2,"April")
+    fern = Vegetable("tomato", 15, 120, 0.2,"April")
     plants = [rose]
 
+    fern.show()
+    fern.age_grow(20)
     fern.show()

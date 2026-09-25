@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-
-class   plant:
-    def __init__(self, name: str, height: int, age: int):
-        self.name = name
+class Plant:
+    def __init__(self, plant, height, age):
+        self.plant = plant
         self.height = height
         self.age = age
-        print("=== Garden Plant Register ===")
-        print(f"{name.capitalize()}: {height}cm, {age} days old")
+
+    def show(self):
+        print(f"{self.plant.capitalize()}: {self.height}cm, "
+              "{self.age} days old")
 
 
 if __name__ == "__main__":
-    plant("Rose", 34, 26)
+    print("=== Garden Plant Registry ===")
+    Plant("rose", 15, 21).show()
+    Plant("cactus", 45, 61).show()
+    Plant("sunflower", 58, 33).show()

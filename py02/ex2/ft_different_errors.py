@@ -24,7 +24,7 @@ def test_error_types():
                 ZeroDivisionError,
                 FileNotFoundError,
                 TypeError
-        ) as ex:
+                ) as ex:
             print(f"Caught {type(ex).__name__}: {ex}")
 
     print("All tests completed - program didn't crash!")

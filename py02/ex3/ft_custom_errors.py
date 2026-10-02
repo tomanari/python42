@@ -18,9 +18,11 @@ def check_health(is_wilting: bool) -> None:
     if is_wilting:
         raise PlantError("The tomato plant is wilting!")
 
+
 def check_water(w_level: int) -> None:
     if w_level <= 0:
         raise WaterError("Not enough water in the tank")
+
 
 def test_cheker() -> None:
     print("Testing PlantError...")

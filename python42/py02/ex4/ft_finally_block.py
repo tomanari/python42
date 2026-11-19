@@ -10,8 +10,17 @@ def water_plant(name):
     print(f"Watering {name}: [OK]")
 
 
-def test_watering_system(plants):
-    print("Testing valid plants...")
+def test_valid_watering_system(plants):
+    print("\nTesting valid plants...")
+    print("Opening watering system")
+    try:
+        for plant in plants:
+            water_plant(plant.capitalize())
+    finally:
+        print("Closing watering system")
+
+def test_invalid_watering_system(plants):
+    print("\nTesting invalid plants...")
     print("Opening watering system")
     try:
         for plant in plants:
@@ -24,19 +33,16 @@ def test_watering_system(plants):
 
 def main():
     print("=== Garden Watering System ===\n")
-    i = 1
+    i = 0
     plants = []
     while True:
-        plant = str(input(f"Enter plant {i} or type exit to leave program: "))
+        plant = str(input(f"Enter plant {i + 1} or type exit to leave program: "))
         if plant.lower() == "exit":
             break
         plants.append(plant)
         i += 1
-    print("Testing valid plants...")
-    for plant in plants:
-        
-    test_watering_system(plants)
-
+    test_valid_watering_system(plants)
+    test_invalid_watering_system(plants)
 
 if __name__ == "__main__":
     main()
